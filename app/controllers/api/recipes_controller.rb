@@ -16,12 +16,12 @@ class Api::RecipesController < ApplicationController
   def create
     # make a new recipe in the db
     @recipe1 = Recipe.new(
-      title: "eggs",
-      chef: "brian",
-      directions: "put the eggs on a hot pan",
-      prep_time: 15,
-      ingredients: "eggs, onions, peppers, tomato",
-      image_url: ""
+      title: params[:input_title],
+      chef: params[:input_chef],
+      directions: params[:input_directions],
+      prep_time: params[:input_prep_time],
+      ingredients: params[:input_ingredients],
+      image_url: params[:input_image_url]
     )
     @recipe1.save
     render "show.json.jbuilder"
