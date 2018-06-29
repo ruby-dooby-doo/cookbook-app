@@ -33,12 +33,12 @@ class Api::RecipesController < ApplicationController
     # grab a particular recipe from the db
     @recipe1 = Recipe.find_by(id: recipe_id)
     # modify that recipe --- create
-    @recipe1.title = "eggs benedict"
-    @recipe1.chef = "Benedict arnold"
-    @recipe1.ingredients = "eggs, bacon, cheese, hollandaise, english muffin"
-    @recipe1.prep_time = 60
-    @recipe1.directions = "put the hollan on the daise and toast the english muffin"
-    @recipe1.image_url = ""
+    @recipe1.title = params[:input_title] || @recipe1.title
+    @recipe1.chef = params[:input_chef] || @recipe1.chef
+    @recipe1.ingredients = params[:input_ingredients] || @recipe1.ingredients
+    @recipe1.prep_time = params[:input_prep_time] || @recipe1.prep_time
+    @recipe1.directions = params[:input_directions] || @recipe1.directions
+    @recipe1.image_url = params[:input_image_url] || @recipe1.image_url
     @recipe1.save
     render "show.json.jbuilder"
   end

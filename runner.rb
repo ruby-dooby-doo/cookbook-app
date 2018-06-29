@@ -17,6 +17,10 @@ require 'unirest'
 
 
 # update action
-response = Unirest.patch("localhost:3000/api/recipes/5")
+response = Unirest.patch("localhost:3000/api/recipes/4",
+  parameters: {
+    input_title: "artichoke spinach dip"
+  }
+)
 
 p response.body
