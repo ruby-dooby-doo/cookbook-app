@@ -40,6 +40,15 @@ class Api::RecipesController < ApplicationController
     @recipe1.directions = params[:input_directions] || @recipe1.directions
     @recipe1.image_url = params[:input_image_url] || @recipe1.image_url
     @recipe1.save
+
+    # @recipe1.update(
+    #   title: params[:input_title] || @recipe1.title,
+    #   chef: params[:input_chef] || @recipe1.chef,
+    #   ingredients: params[:input_ingredients] || @recipe1.ingredients,
+    #   prep_time: params[:input_prep_time] || @recipe1.prep_time,
+    #   directions: params[:input_directions] || @recipe1.directions,
+    #   image_url: params[:input_image_url] || @recipe1.image_url
+    # )
     render "show.json.jbuilder"
   end
 end

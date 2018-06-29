@@ -17,9 +17,12 @@ require 'unirest'
 
 
 # update action
-response = Unirest.patch("localhost:3000/api/recipes/4",
+p "which item would you like to update?"
+recipe_id = gets.chomp
+
+response = Unirest.patch("localhost:3000/api/recipes/#{recipe_id}",
   parameters: {
-    input_title: "artichoke spinach dip"
+    input_title: gets.chomp
   }
 )
 
