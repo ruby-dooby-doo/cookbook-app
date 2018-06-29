@@ -26,4 +26,20 @@ class Api::RecipesController < ApplicationController
     @recipe1.save
     render "show.json.jbuilder"
   end
+
+  def update
+    # get a recipe from the db --- show
+    recipe_id = params[:id]
+    # grab a particular recipe from the db
+    @recipe1 = Recipe.find_by(id: recipe_id)
+    # modify that recipe --- create
+    @recipe1.title = "eggs benedict"
+    @recipe1.chef = "Benedict arnold"
+    @recipe1.ingredients = "eggs, bacon, cheese, hollandaise, english muffin"
+    @recipe1.prep_time = 60
+    @recipe1.directions = "put the hollan on the daise and toast the english muffin"
+    @recipe1.image_url = ""
+    @recipe1.save
+    render "show.json.jbuilder"
+  end
 end
