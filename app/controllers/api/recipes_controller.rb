@@ -10,7 +10,7 @@ class Api::RecipesController < ApplicationController
     # grab a particular recipe from the db
     @recipe1 = Recipe.find_by(id: recipe_id)
     # show that recipe to the user
-    render "show.html.erb"
+    render "show.json.jbuilder"
   end
 
   def create
