@@ -21,11 +21,11 @@ require 'unirest'
 # recipe_id = gets.chomp
 
 
-# response = Unirest.patch("localhost:3000/api/recipes/#{recipe_id}",
-#   parameters: {
-#     input_title: gets.chomp
-#   }
-# )
+response = Unirest.patch("localhost:3000/api/recipes/#{recipe_id}",
+  parameters: {
+    input_title: "new title"
+  }
+)
 
 # p response.body
 
