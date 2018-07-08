@@ -1,6 +1,6 @@
 json.id @recipe1.id
 json.title @recipe1.title
-json.directions @recipe1.directions
+json.directions @recipe1.directions_list
 json.chef @recipe1.chef
 json.ingredients @recipe1.ingredients_list
 json.image_url @recipe1.image_url
