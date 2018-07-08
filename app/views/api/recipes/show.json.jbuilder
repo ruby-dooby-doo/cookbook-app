@@ -11,4 +11,6 @@ json.updated_at @recipe1.updated_at
 json.formatted do
   json.ingredients @recipe1.ingredients_list
   json.directions @recipe1.directions_list
+  json.created_at @recipe1.month_day_year
+  json.hours_and_minutes @recipe1.hours_and_minutes
 end
