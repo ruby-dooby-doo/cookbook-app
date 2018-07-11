@@ -4,7 +4,12 @@ class Api::RecipesController < ApplicationController
 
     # filter info coming from the db
     user_input = params[:search]
-    @recipes = Recipe.where('title LIKE ?', "%#{user_input}%")
+    # @recipes = Recipe.all
+    if user_input
+      @recipes = Recipe.where('title LIKE ?', "%#{user_input}%").order(:id => :asc)
+    else
+      @recipes = Recipe.all
+    end
     render "index.json.jbuilder"
   end
 
