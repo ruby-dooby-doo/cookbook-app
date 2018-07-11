@@ -1,6 +1,10 @@
 class Api::RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    # take user input and filter based on that input
+
+    # filter info coming from the db
+    user_input = params[:search]
+    @recipes = Recipe.where('title LIKE ?', "%#{user_input}%")
     render "index.json.jbuilder"
   end
 
