@@ -26,7 +26,7 @@ class Api::RecipesController < ApplicationController
     # make a new recipe in the db
     @recipe1 = Recipe.new(
       title: params[:input_title],
-      chef: params[:input_chef],
+      user_id: current_user.id,
       directions: params[:input_directions],
       prep_time: params[:input_prep_time],
       ingredients: params[:input_ingredients],

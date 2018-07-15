@@ -2,6 +2,10 @@ class Api::SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
+      p '*' * 50
+      p user
+      p 24.hours.from_now.to_i
+      p '*' * 50
       jwt = JWT.encode(
         {
           user: user.id, # the data to encode

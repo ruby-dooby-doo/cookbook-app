@@ -17,13 +17,26 @@
 # ])
 
 
-brian_recipes = []
+# brian_recipes = []
+# recipes = Recipe.all
+
+# recipes.each do |recipe|
+#   if recipe.chef == 'brian'
+#     brian_recipes << recipe
+#   end
+# end
+
+# p brian_recipes
+
+
+
+# associate my recipes with a particular user
+users = User.all
+
 recipes = Recipe.all
 
 recipes.each do |recipe|
-  if recipe.chef == 'brian'
-    brian_recipes << recipe
-  end
+  recipe.user_id = users.sample.id
+  recipe.save
 end
 
-p brian_recipes
