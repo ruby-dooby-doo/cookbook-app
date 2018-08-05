@@ -11,7 +11,7 @@ var recipeTemplate = document.querySelector('#recipe-card');
 var recipeContainer = document.querySelector('.row');
 
 
-// recipeContainer.appendChild(recipeTemplate.content.cloneNode(true));
+recipeContainer.appendChild(recipeTemplate.content.cloneNode(true));
 
 // get data from api
 axios.get("/api/recipes").then(function(response) {
@@ -35,3 +35,13 @@ axios.get("/api/recipes").then(function(response) {
     recipeContainer.appendChild(recipeClone);
   });
 });
+
+// response = Unirest.get("/api/recipes")
+// p response.body
+
+// axios.get("/api/recipes").then(function(response) {
+//   console.log('i am on line 43');
+//   console.log(response.data);
+// });
+
+// console.log('i am after line 43, on line 47');
