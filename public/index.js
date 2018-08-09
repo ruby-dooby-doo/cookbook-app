@@ -1,6 +1,8 @@
 /* global Vue, VueRouter, axios */
 
+// SORT OF like your controller
 var RandomPage = {
+  // SORT OF like a view
   template: "#random-page",
   data: function() {
     return {
@@ -32,6 +34,7 @@ var HomePage = {
 };
 
 var router = new VueRouter({
+  // routes.rb/routes file
   routes: [
     { path: "/", component: HomePage },
     { path: "/random", component: RandomPage }
