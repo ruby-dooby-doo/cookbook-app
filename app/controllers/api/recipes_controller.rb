@@ -1,7 +1,9 @@
 class Api::RecipesController < ApplicationController
   def index
     # take user input and filter based on that input
-
+    p "*" * 50
+    p current_user
+    p "*" * 50
     # filter info coming from the db
     user_input = params[:search]
     # @recipes = Recipe.all
@@ -24,6 +26,8 @@ class Api::RecipesController < ApplicationController
 
   def create
     # make a new recipe in the db
+    p "params"
+    p params
     @recipe1 = Recipe.new(
       title: params[:input_title],
       user_id: current_user.id,
@@ -32,7 +36,11 @@ class Api::RecipesController < ApplicationController
       ingredients: params[:input_ingredients],
       image_url: params[:input_image_url]
     )
+    p "recipe1 before the save"
+    p @recipe1
     @recipe1.save
+    p "recipe1 after the save"
+    p @recipe1
     render "show.json.jbuilder"
   end
 
