@@ -1,4 +1,5 @@
 class Api::RecipesController < ApplicationController
+
   def index
     # take user input and filter based on that input
     p "*" * 50

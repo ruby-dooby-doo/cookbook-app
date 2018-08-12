@@ -115,6 +115,32 @@ var RecipeNewPage = {
 };
 
 
+var RecipeShowPage = {
+  template: "#recipe-show-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      recipe: {title: "", directions: "", ingredients: "", prep_time: "", id: 4, user: {name: ""}, image_url: ""}
+    };
+  },
+  created: function() {
+    // go to the db, and based on the url, get a particular recipe
+    // access the info in the url
+    console.log(this.$route.params.id);
+    axios.get("/api/recipes/" + this.$route.params.id).then(function(response) {
+      console.log(response);
+      this.recipe = response.data;
+    }.bind(this));
+
+    // console.log('in created function')
+    // axios.get('/api/recipes').then(function(response) {
+    //   console.log(response.data);
+    //   this.recipes = response.data;
+    // }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
 
 var RandomPage = {
   // SORT OF like a view
@@ -156,7 +182,8 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    { path: "/recipes/new", component: RecipeNewPage }
+    { path: "/recipes/new", component: RecipeNewPage },
+    { path: "/recipes/:id", component: RecipeShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
