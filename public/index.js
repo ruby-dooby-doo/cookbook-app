@@ -209,7 +209,8 @@ var HomePage = {
   data: function() {
     return {
       message: "Welcome to Vue.js!",
-      recipes: []
+      recipes: [],
+      selectedRecipe: {title: "sample title", directions: "sample directions", ingredients: "sample ingredients", prep_time: "sample prep_time", user: {name: "username"}}
     };
   },
   created: function() {
@@ -219,7 +220,13 @@ var HomePage = {
       this.recipes = response.data;
     }.bind(this));
   },
-  methods: {},
+  methods: {
+    changeSelectedRecipe: function(inputRecipe) {
+      // all i have to do, reset selectedRecipe
+
+      this.selectedRecipe = inputRecipe;
+    }
+  },
   computed: {}
 };
 

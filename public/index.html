@@ -84,12 +84,47 @@
             <img style="width:100px;height:100px;" v-bind:src="recipe.image_url">
             <p class="prep">prep_time: {{ recipe.prep_time }}</p>
             <a v-bind:href="'/#/recipes/' + recipe.id" class="btn btn-primary">Go to the show page</a>
+            <!-- Button trigger modal -->
+              <button v-on:click="changeSelectedRecipe(recipe)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Launch demo modal
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- show info about a recipe -->
+            <h5 class="card-title">title: {{ selectedRecipe.title }}</h5>
+            <p class="card-text">directions: {{ selectedRecipe.directions }}</p>
+            <p class="id">id: {{ selectedRecipe.id }}</p>
+            <p class="ingredients">ingredients: {{ selectedRecipe.ingredients }}</p>
+            <p class="user">user: {{ selectedRecipe.user.name }}</p>
+            <img style="width:100px;height:100px;" v-bind:src="selectedRecipe.image_url">
+            <p class="prep">prep_time: {{ selectedRecipe.prep_time }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
+
+
 
 
 <!-- sort of like the view -->
@@ -226,7 +261,7 @@
           <p class="user">user: {{ recipe.user.name }}</p>
           <img style="width:100px;height:100px;" v-bind:src="recipe.image_url">
           <p class="prep">prep_time: {{ recipe.prep_time }}</p>
-          <a href="/client/recipes/12" class="btn btn-primary">Go to the show page</a>
+
         </div>
       </div>
     </div>
