@@ -52,7 +52,7 @@ class Api::RecipesController < ApplicationController
     @recipe1 = Recipe.find_by(id: recipe_id)
     # modify that recipe --- create
     @recipe1.title = params[:input_title] || @recipe1.title
-    @recipe1.chef = params[:input_chef] || @recipe1.chef
+    # @recipe1.chef = params[:input_chef] || @recipe1.chef
     @recipe1.ingredients = params[:input_ingredients] || @recipe1.ingredients
     @recipe1.prep_time = params[:input_prep_time] || @recipe1.prep_time
     @recipe1.directions = params[:input_directions] || @recipe1.directions

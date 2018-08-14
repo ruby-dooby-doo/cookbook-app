@@ -84,7 +84,6 @@
             <img style="width:100px;height:100px;" v-bind:src="recipe.image_url">
             <p class="prep">prep_time: {{ recipe.prep_time }}</p>
             <a v-bind:href="'/#/recipes/' + recipe.id" class="btn btn-primary">Go to the show page</a>
-
           </div>
         </div>
       </div>
@@ -125,6 +124,35 @@
       <div class="form-group">
         <label>Prep time:</label>
         <input type="text" class="form-control" v-model="prep_time">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="recipe-edit-page">
+  <div class="vue-component">
+    <div class="container">
+      <h1>Make a new recipe</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>title:</label>
+        <input type="text" class="form-control" v-model="title">
+      </div>
+      <div class="form-group">
+        <label>Ingredients:</label>
+        <input type="text" class="form-control" v-model="ingredients">
+      </div>
+      <div class="form-group">
+        <label>Directions:</label>
+        <input type="text" class="form-control" v-model="directions">
+      </div>
+      <div class="form-group">
+        <label>Prep time:</label>
+        <input type="text" class="form-control" v-model="prepTime">
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
